@@ -1,6 +1,5 @@
 package com.venaseph.hearthlopedia;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -17,14 +16,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void toolBarSetup() {
-
+        //Needs work, frag/logo/search functionality
         Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        getSupportActionBar().setTitle("Hearthlopedia");
-        toolbar.setSubtitle("Subtitle");
         toolbar.setLogo(R.drawable.hslogo);
-        toolbar.setTitleTextColor(Color.WHITE);
     }
 }
 
