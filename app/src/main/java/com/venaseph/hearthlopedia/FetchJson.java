@@ -44,7 +44,6 @@ class FetchJson {
                 CardList cardList = new CardList();
 
                 cardList = gson.fromJson(body, CardList.class);
-//
                 //pass back to adapter
 //                runOnUiThread {
 //                    recView_main.adapter = MainAdapter(cardFeed)

@@ -8,9 +8,13 @@ import java.util.List;
 
 public class CardList {
 
-    private List<Card> cardList;
+    private List<Card> Basic;
 
-//    public CardList(List<Card> cardList) {
-//        this.cardList = cardList;
-//    }
+    public List<Card> getCardList() {
+        return Basic;
+    }
+
+    public void setCardList(List<Card> cardList) {
+        this.Basic = Basic;
+    }
 }
