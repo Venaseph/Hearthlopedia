@@ -23,8 +23,6 @@ public class Card {
     private String imgGold;
     private String locale;
 
-    public Card(){}
-
     public Card(String cardId, String name, String cardSet, String type, String faction, String rarity, String cost, String attack, String health, String text, String flavor, String artist, Boolean collectible, Boolean elite,
                 String playerClass, String img, String imgGold, String locale) {
         this.cardId = cardId;

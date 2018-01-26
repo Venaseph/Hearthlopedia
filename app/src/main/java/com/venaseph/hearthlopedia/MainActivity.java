@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
         toolBarSetup();
         recyclerViewSetup();
+
         fetchJSON = new FetchJson();
         try {
             fetchJSON.run();
@@ -53,3 +54,11 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 
+//
+//    public String stripHtml(String html) {
+//        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+//            return Html.fromHtml(html, Html.FROM_HTML_MODE_LEGACY);
+//        } else {
+//            return Html.fromHtml(html);
+//        }
+//    }
