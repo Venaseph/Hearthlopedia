@@ -47,8 +47,84 @@ public class Card {
         this.img = img;
         this.imgGold = imgGold;
         this.locale = locale;
+        this.mechanics = mechanics
     }
 
+    public String getCardId() {
+        return cardId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getCardSet() {
+        return cardSet;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getFaction() {
+        return faction;
+    }
+
+    public String getRarity() {
+        return rarity;
+    }
+
+    public String getCost() {
+        return cost;
+    }
+
+    public String getAttack() {
+        return attack;
+    }
+
+    public String getHealth() {
+        return health;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public String getFlavor() {
+        return flavor;
+    }
+
+    public String getArtist() {
+        return artist;
+    }
+
+    public Boolean getCollectible() {
+        return collectible;
+    }
+
+    public Boolean getElite() {
+        return elite;
+    }
+
+    public String getPlayerClass() {
+        return playerClass;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public String getImgGold() {
+        return imgGold;
+    }
+
+    public String getLocale() {
+        return locale;
+    }
+
+    public Mechanics getMechanics() {
+        return mechanics;
+    }
 }
 
 class Mechanics {
