@@ -3,7 +3,6 @@ package com.venaseph.hearthlopedia;
 /**
  * Created by Chris on 1/26/2018.
  */
-
 public class Card {
     private String cardId;
     private String name;
@@ -23,12 +22,11 @@ public class Card {
     private String img;
     private String imgGold;
     private String locale;
-    private Mechanics mechanics;
 
     public Card(){}
 
     public Card(String cardId, String name, String cardSet, String type, String faction, String rarity, String cost, String attack, String health, String text, String flavor, String artist, Boolean collectible, Boolean elite,
-                String playerClass, String img, String imgGold, String locale, Mechanics mechanics) {
+                String playerClass, String img, String imgGold, String locale) {
         this.cardId = cardId;
         this.name = name;
         this.cardSet = cardSet;
@@ -47,7 +45,6 @@ public class Card {
         this.img = img;
         this.imgGold = imgGold;
         this.locale = locale;
-        this.mechanics = mechanics
     }
 
     public String getCardId() {
@@ -122,18 +119,8 @@ public class Card {
         return locale;
     }
 
-    public Mechanics getMechanics() {
-        return mechanics;
-    }
 }
-
-class Mechanics {
-
-}
-
-
-
-
+// Sample API pull
 //								[
 //                                        {
 //                                        "cardId": "EX1_116",

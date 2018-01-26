@@ -36,7 +36,9 @@ class FetchJson {
 
                     String body = response.body().string();
                     System.out.println(body);
-
+//                CardList cardList = new CardList(;
+//                Gson gson = new Gson();
+//                String json = gson.toJson(cardList);
             }
         });
 
