@@ -10,7 +10,7 @@ public class CardList {
 
     private ArrayList<Card> cardList;
 
-    public CardList(ArrayList<Card> cardList) {
-        this.cardList = cardList;
-    }
+//    public CardList(ArrayList<Card> cardList) {
+//        this.cardList = cardList;
+//    }
 }

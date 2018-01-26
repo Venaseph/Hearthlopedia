@@ -1,5 +1,8 @@
 package com.venaseph.hearthlopedia;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import java.io.IOException;
 
 import okhttp3.Call;
@@ -20,6 +23,7 @@ class FetchJson {
     
 
     public void run() throws IOException {
+
         Request request = new Request.Builder()
                 .header("X-Mashape-Key", key)
                 .url(url)
@@ -33,12 +37,19 @@ class FetchJson {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                String body = response.body().string();
 
-                    String body = response.body().string();
-                    System.out.println(body);
-//                CardList cardList = new CardList(;
-//                Gson gson = new Gson();
-//                String json = gson.toJson(cardList);
+                Gson gson = new GsonBuilder()
+                        .create();
+
+                CardList cardList = new CardList();
+
+//                val cardFeed = gson.fromJson(body, CardList::class.java)
+//
+                //pass back to adapter
+//                runOnUiThread {
+//                    recView_main.adapter = MainAdapter(cardFeed)
+//                }
             }
         });
 
