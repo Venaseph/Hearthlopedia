@@ -1,6 +1,6 @@
 package com.venaseph.hearthlopedia;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by cpera on 1/26/2018.
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class CardList {
 
-    private ArrayList<Card> cardList;
+    private List<Card> cardList;
 
 //    public CardList(ArrayList<Card> cardList) {
 //        this.cardList = cardList;

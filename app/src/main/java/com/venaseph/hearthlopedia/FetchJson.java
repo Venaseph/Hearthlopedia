@@ -39,12 +39,11 @@ class FetchJson {
             public void onResponse(Call call, Response response) throws IOException {
                 String body = response.body().string();
 
-                Gson gson = new GsonBuilder()
-                        .create();
+                Gson gson = new GsonBuilder().create();
 
                 CardList cardList = new CardList();
 
-//                val cardFeed = gson.fromJson(body, CardList::class.java)
+                cardList = gson.fromJson(body, CardList.class);
 //
                 //pass back to adapter
 //                runOnUiThread {
