@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager rvLayoutManager;
     private RecyclerView.Adapter rvAdaptor;
+    private FetchJson fetchJSON;
 
 
     @Override
@@ -21,18 +22,19 @@ public class MainActivity extends AppCompatActivity {
 
         toolBarSetup();
         recyclerViewSetup();
+        fetchJSON = new FetchJson();
 
     }
 
     private void recyclerViewSetup() {
-        // Grab Recycler View
+        // Grab/Assign Recycler View
         recyclerView = findViewById(R.id.recyclerView_Main);
 
-        //Assign Layout Manager to RecyclerView
+        //Init/Assign Layout Manager to RecyclerView
         rvLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(rvLayoutManager);
 
-        //Assign Adaptor to RecyclerView
+        //Init/Assign Adaptor to RecyclerView
         rvAdaptor = new RecyclerAdaptor();
         recyclerView.setAdapter(rvAdaptor);
     }

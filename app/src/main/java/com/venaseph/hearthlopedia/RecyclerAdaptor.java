@@ -31,7 +31,7 @@ public class RecyclerAdaptor extends RecyclerView.Adapter<RecyclerAdaptor.Custom
     }
 
     public static class CustomViewHolder extends RecyclerView.ViewHolder {
-
+        //need to implement onclick here
         public CustomViewHolder(View itemView) {
             super(itemView);
         }
