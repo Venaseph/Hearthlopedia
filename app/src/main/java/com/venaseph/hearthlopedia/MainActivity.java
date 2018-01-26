@@ -33,7 +33,8 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(rvLayoutManager);
 
         //Assign Adaptor to RecyclerView
-        //rvAdaptor = new
+        rvAdaptor = new RecyclerAdaptor();
+        recyclerView.setAdapter(rvAdaptor);
     }
 
     private void toolBarSetup() {
