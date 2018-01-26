@@ -6,6 +6,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
+import java.io.IOException;
+
 public class MainActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
@@ -23,6 +25,11 @@ public class MainActivity extends AppCompatActivity {
         toolBarSetup();
         recyclerViewSetup();
         fetchJSON = new FetchJson();
+        try {
+            fetchJSON.run();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 

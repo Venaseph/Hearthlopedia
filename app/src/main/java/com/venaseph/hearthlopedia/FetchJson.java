@@ -35,7 +35,7 @@ class FetchJson {
             public void onResponse(Call call, Response response) throws IOException {
 
                     String body = response.body().string();
-
+                    System.out.println(body);
 
             }
         });
