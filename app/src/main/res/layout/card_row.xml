@@ -24,8 +24,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:clickable="false"
+        app:layout_constraintBottom_toBottomOf="@+id/cardImgView"
         app:layout_constraintStart_toEndOf="@+id/cardImgView"
-        app:layout_constraintTop_toBottomOf="@+id/cardFlavor" />
+        app:layout_constraintTop_toBottomOf="@+id/cardFlavor"
+        app:layout_constraintVertical_bias="0.181" />
 
     <TextView
         android:id="@+id/cardTitle"
@@ -58,10 +60,10 @@
     <TextView
         android:id="@+id/cardFlavor"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="98dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:text="cardFlavor"
         android:textColor="@color/colorPrimary"
         android:textSize="12sp"
@@ -79,8 +81,10 @@
         android:background="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardImgView" />
+        app:layout_constraintTop_toBottomOf="@+id/cardImgView"
+        app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
         android:id="@+id/dustImageView"
@@ -103,5 +107,18 @@
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/dustImageView"
         app:layout_constraintTop_toTopOf="@+id/dustImageView" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="0dp"
+        android:layout_height="31dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="More"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toStartOf="@+id/ratingBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ratingBar" />
 
 </android.support.constraint.ConstraintLayout>
