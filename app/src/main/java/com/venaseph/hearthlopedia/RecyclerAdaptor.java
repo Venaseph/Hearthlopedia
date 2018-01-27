@@ -6,6 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
+import pl.droidsonroids.gif.GifImageView;
+
 /**
  * Created by Chris on 1/25/2018.
  */
@@ -40,18 +44,22 @@ public class RecyclerAdaptor extends RecyclerView.Adapter<RecyclerAdaptor.Custom
         holder.cardName.setText(card.getName());
         holder.cardText.setText(card.getText());
         holder.cardFlavor.setText(card.getFlavor());
+        Picasso.with(holder.cardImg.getContext()).load(card.getImg()).into(holder.cardImg);
+
     }
 
     public static class CustomViewHolder extends RecyclerView.ViewHolder {
-        public TextView cardName;
-        public TextView cardText;
-        public TextView cardFlavor;
+        private TextView cardName;
+        private TextView cardText;
+        private TextView cardFlavor;
+        private GifImageView cardImg;
         //need to implement onclick here
         public CustomViewHolder(View itemView) {
             super(itemView);
             cardName = itemView.findViewById(R.id.cardTitle);
             cardText = itemView.findViewById(R.id.cardText);
             cardFlavor = itemView.findViewById(R.id.cardFlavor);
+            cardImg = itemView.findViewById(R.id.cardImgView);
         }
     }
 
