@@ -77,13 +77,13 @@
         android:layout_width="0dp"
         android:layout_height="0.5dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
         android:background="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardImgView"
+        app:layout_constraintTop_toBottomOf="@+id/button"
         app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
@@ -115,7 +115,9 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:backgroundTint="@color/colorPrimary"
         android:text="More"
+        android:textColor="@color/colorBack"
         android:textSize="8sp"
         app:layout_constraintEnd_toStartOf="@+id/ratingBar"
         app:layout_constraintStart_toStartOf="parent"
