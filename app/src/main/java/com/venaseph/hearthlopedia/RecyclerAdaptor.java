@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 /**
  * Created by Chris on 1/25/2018.
@@ -34,14 +35,25 @@ public class RecyclerAdaptor extends RecyclerView.Adapter<RecyclerAdaptor.Custom
 
     @Override
     public void onBindViewHolder(RecyclerAdaptor.CustomViewHolder holder, int position) {
-
+        final Card card = cardList.Basic.get(position);
+        //could have made values protected in class, but meh
+        holder.cardName.setText(card.getName());
+        holder.cardText.setText(card.getText());
+        holder.cardFlavor.setText(card.getFlavor());
     }
 
     public static class CustomViewHolder extends RecyclerView.ViewHolder {
+        public TextView cardName;
+        public TextView cardText;
+        public TextView cardFlavor;
         //need to implement onclick here
         public CustomViewHolder(View itemView) {
             super(itemView);
+            cardName = itemView.findViewById(R.id.cardTitle);
+            cardText = itemView.findViewById(R.id.cardText);
+            cardFlavor = itemView.findViewById(R.id.cardFlavor);
         }
     }
+
 }
 

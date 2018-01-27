@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
                 cardList = gson.fromJson(body, CardList.class);
 
                 runOnUiThread(new Runnable() {
-                    //View hierarchy issues, run on main
+                    //View hierarchy issues, run on main thread
                     public void run() {
                         rvAdaptor = new RecyclerAdaptor(cardList);
                         recyclerView.setAdapter(rvAdaptor);
