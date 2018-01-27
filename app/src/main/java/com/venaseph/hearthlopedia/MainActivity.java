@@ -6,7 +6,16 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import java.io.IOException;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager rvLayoutManager;
     private RecyclerView.Adapter rvAdaptor;
-    private FetchJson fetchJSON;
+    public CardList cardList;
 
 
     @Override
@@ -23,14 +32,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         toolBarSetup();
-        recyclerViewSetup();
 
-        fetchJSON = new FetchJson();
-        try {
-            fetchJSON.run();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        recyclerViewSetup();
+        fetchJSON();
 
     }
 
@@ -41,10 +45,6 @@ public class MainActivity extends AppCompatActivity {
         //Init/Assign Layout Manager to RecyclerView
         rvLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(rvLayoutManager);
-
-        //Init/Assign Adaptor to RecyclerView
-        rvAdaptor = new RecyclerAdaptor();
-        recyclerView.setAdapter(rvAdaptor);
     }
 
     private void toolBarSetup() {
@@ -52,13 +52,43 @@ public class MainActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         toolbar.setLogo(R.drawable.hslogo);
     }
+
+    private void fetchJSON() {
+
+        final OkHttpClient client = new OkHttpClient();
+        String url = "https://omgvamp-hearthstone-v1.p.mashape.com/cards";
+        String key = "mSCkyyFuiMmshxkH3QTA6RsLglGGp1GG15ajsnJdGUUoajgNgt";
+        Request request = new Request.Builder()
+                .header("X-Mashape-Key", key)
+                .url(url)
+                .build();
+        //On a new thread
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                String body = response.body().string();
+
+                Gson gson = new GsonBuilder().create();
+
+                cardList = new CardList();
+                cardList = gson.fromJson(body, CardList.class);
+
+                runOnUiThread(new Runnable() {
+                    //View hierarchy issues, run on main
+                    public void run() {
+                        rvAdaptor = new RecyclerAdaptor(cardList);
+                        recyclerView.setAdapter(rvAdaptor);
+                    }
+                });
+
+            }
+        });
+
+    }
 }
 
-//
-//    public String stripHtml(String html) {
-//        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-//            return Html.fromHtml(html, Html.FROM_HTML_MODE_LEGACY);
-//        } else {
-//            return Html.fromHtml(html);
-//        }
-//    }

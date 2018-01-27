@@ -8,7 +8,7 @@ import java.util.List;
 
 public class CardList {
 
-    private List<Card> Basic;
+    public List<Card> Basic;
 
     public List<Card> getCardList() {
         return Basic;

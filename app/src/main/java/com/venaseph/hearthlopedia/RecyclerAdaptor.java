@@ -11,11 +11,18 @@ import android.view.ViewGroup;
 
 public class RecyclerAdaptor extends RecyclerView.Adapter<RecyclerAdaptor.CustomViewHolder> {
 
+    public CardList cardList;
+
+    public RecyclerAdaptor(CardList cardList) {
+        this.cardList = cardList;
+    }
+
     @Override
     //Number of Items
     public int getItemCount() {
-        return 20;
+        return cardList.Basic.size();
     }
+
 
     @Override
     public RecyclerAdaptor.CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
