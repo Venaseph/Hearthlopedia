@@ -40,10 +40,26 @@ public class RecyclerAdaptor extends RecyclerView.Adapter<RecyclerAdaptor.Custom
     @Override
     public void onBindViewHolder(RecyclerAdaptor.CustomViewHolder holder, int position) {
         final Card card = cardList.Basic.get(position);
+        String cost = "0";
         //could have made values protected in class, but meh
         holder.cardName.setText(card.getName());
         holder.cardText.setText(card.getText());
         holder.cardFlavor.setText(card.getFlavor());
+
+        if (card.getRarity() != null) {
+            switch (card.getRarity()) {
+                case "Common": cost = "40";
+                    break;
+                case "Rare": cost = "100";
+                    break;
+                case "Epic": cost = "400";
+                    break;
+                case "Legendary": cost = "1600";
+                    break;
+            }
+        }
+
+        holder.cardCost.setText(cost);
         Picasso.with(holder.cardImg.getContext()).load(card.getImg()).into(holder.cardImg);
 
     }
@@ -52,6 +68,7 @@ public class RecyclerAdaptor extends RecyclerView.Adapter<RecyclerAdaptor.Custom
         private TextView cardName;
         private TextView cardText;
         private TextView cardFlavor;
+        private TextView cardCost;
         private GifImageView cardImg;
         //need to implement onclick here
         public CustomViewHolder(View itemView) {
@@ -59,6 +76,7 @@ public class RecyclerAdaptor extends RecyclerView.Adapter<RecyclerAdaptor.Custom
             cardName = itemView.findViewById(R.id.cardTitle);
             cardText = itemView.findViewById(R.id.cardText);
             cardFlavor = itemView.findViewById(R.id.cardFlavor);
+            cardCost = itemView.findViewById(R.id.dustTextView);
             cardImg = itemView.findViewById(R.id.cardImgView);
         }
     }
