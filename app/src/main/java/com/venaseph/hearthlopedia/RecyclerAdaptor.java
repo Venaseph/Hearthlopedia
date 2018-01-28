@@ -1,9 +1,11 @@
 package com.venaseph.hearthlopedia;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -39,13 +41,15 @@ public class RecyclerAdaptor extends RecyclerView.Adapter<RecyclerAdaptor.Custom
 
     @Override
     public void onBindViewHolder(RecyclerAdaptor.CustomViewHolder holder, int position) {
+
         final Card card = cardList.Basic.get(position);
         String cost = "0";
-        //could have made values protected in class, but meh
+        // Could have made values protected in class, but meh
         holder.cardName.setText(card.getName());
         holder.cardText.setText(card.getText());
         holder.cardFlavor.setText(card.getFlavor());
 
+        // Handles dust value of card
         if (card.getRarity() != null) {
             switch (card.getRarity()) {
                 case "Common": cost = "40";
@@ -65,19 +69,31 @@ public class RecyclerAdaptor extends RecyclerView.Adapter<RecyclerAdaptor.Custom
     }
 
     public static class CustomViewHolder extends RecyclerView.ViewHolder {
+
         private TextView cardName;
         private TextView cardText;
         private TextView cardFlavor;
         private TextView cardCost;
         private GifImageView cardImg;
-        //need to implement onclick here
-        public CustomViewHolder(View itemView) {
+        private Button moreButton;
+
+        public CustomViewHolder(final View itemView) {
             super(itemView);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(itemView.getContext(), CardActivity.class);
+                    itemView.getContext().startActivity(intent);
+                }
+            });
+
             cardName = itemView.findViewById(R.id.cardTitle);
             cardText = itemView.findViewById(R.id.cardText);
             cardFlavor = itemView.findViewById(R.id.cardFlavor);
             cardCost = itemView.findViewById(R.id.dustTextView);
             cardImg = itemView.findViewById(R.id.cardImgView);
+            moreButton = itemView.findViewById(R.id.moreButton);
+
         }
     }
 

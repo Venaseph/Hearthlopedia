@@ -19,7 +19,7 @@ import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Toolbar toolbar;
+    private Toolbar toolBar;
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager rvLayoutManager;
     private RecyclerView.Adapter rvAdaptor;
@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         // Grab/Assign Recycler View
         recyclerView = findViewById(R.id.recyclerView_Main);
 
+
         //Init/Assign Layout Manager to RecyclerView
         rvLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(rvLayoutManager);
@@ -49,8 +50,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void toolBarSetup() {
         //Needs work, frag/logo/search functionality
-        toolbar = findViewById(R.id.toolbar);
-        toolbar.setLogo(R.drawable.hslogo);
+        toolBar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolBar);
+        toolBar.setLogo(R.drawable.hslogo);
     }
 
     private void fetchJSON() {

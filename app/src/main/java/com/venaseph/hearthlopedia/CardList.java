@@ -8,7 +8,7 @@ import java.util.List;
 
 public class CardList {
 
-    public List<Card> Basic;
+    public List<Card> Basic, Naxxramas;
 
     public List<Card> getCardList() {
         return Basic;
@@ -16,5 +16,6 @@ public class CardList {
 
     public void setCardList(List<Card> cardList) {
         this.Basic = Basic;
+        this.Naxxramas = Naxxramas;
     }
 }
