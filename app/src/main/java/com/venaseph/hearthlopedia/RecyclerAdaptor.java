@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -94,7 +95,18 @@ public class RecyclerAdaptor extends RecyclerView.Adapter<RecyclerAdaptor.Custom
             cardImg = itemView.findViewById(R.id.cardImgView);
             moreButton = itemView.findViewById(R.id.moreButton);
 
+            moreButton.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(itemView.getContext(), "Clicked:" + getAdapterPosition(), Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(itemView.getContext(), CardActivity.class);
+                    itemView.getContext().startActivity(intent);
+                }
+            });
+
         }
+
     }
 
 }
