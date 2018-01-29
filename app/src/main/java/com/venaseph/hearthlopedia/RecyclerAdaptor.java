@@ -28,6 +28,7 @@ public class RecyclerAdaptor extends RecyclerView.Adapter<RecyclerAdaptor.Custom
     private static final String CARD_RARITY = "CARD_RARITY";
     private static final String CARD_NAME = "CARD_NAME";
     private static final String CARD_IMG = "CARD_IMG";
+    private static final String CARD_TEXT = "CARD_TEXT";
 
     private static Intent intent;
     private static Bundle extras;
@@ -107,8 +108,15 @@ public class RecyclerAdaptor extends RecyclerView.Adapter<RecyclerAdaptor.Custom
                     Toast.makeText(itemView.getContext(), "Clicked:" + getAdapterPosition(), Toast.LENGTH_SHORT).show();
                     intent = new Intent(itemView.getContext(), CardActivity.class);
                     extras = new Bundle();
-                    extras.putString(CARD_FLAVOR, cardList.Basic.get(getAdapterPosition()).getFlavor());
-                    extras.putString(CARD_IMG, cardList.Basic.get(getAdapterPosition()).getImg());
+                        extras.putString(CARD_IMG, cardList.Basic.get(getAdapterPosition()).getImg());
+                        extras.putString(CARD_FLAVOR, cardList.Basic.get(getAdapterPosition()).getFlavor());
+                        extras.putString(CARD_TEXT, cardList.Basic.get(getAdapterPosition()).getText());
+                        //extras.putString(CARD_CLASS, cardList.Basic.get(getAdapterPosition()).getFlavor());
+                        extras.putString(CARD_TYPE, cardList.Basic.get(getAdapterPosition()).getType());
+                        extras.putString(CARD_ARTIST, cardList.Basic.get(getAdapterPosition()).getArtist());
+                        extras.putString(CARD_SET, cardList.Basic.get(getAdapterPosition()).getCardSet());
+                        extras.putString(CARD_RARITY, cardList.Basic.get(getAdapterPosition()).getRarity());
+                        extras.putString(CARD_NAME, cardList.Basic.get(getAdapterPosition()).getName());
                     //intent.putExtras(extras);
                     itemView.getContext().startActivity(intent);
                 }
