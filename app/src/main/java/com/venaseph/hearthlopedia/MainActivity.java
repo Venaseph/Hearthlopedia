@@ -33,8 +33,9 @@ public class MainActivity extends AppCompatActivity {
 
         toolBarSetup();
 
+
         recyclerViewSetup();
-        fetchJSON();
+        cardList = fetchJSON();
 
     }
 
@@ -55,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         toolBar.setLogo(R.drawable.hslogo);
     }
 
-    private void fetchJSON() {
+    private CardList fetchJSON() {
 
         final OkHttpClient client = new OkHttpClient();
         String url = "https://omgvamp-hearthstone-v1.p.mashape.com/cards";
@@ -90,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
+    return cardList;
     }
 }
 

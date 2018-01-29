@@ -49,7 +49,7 @@ public class Intro_Splash extends AppCompatActivity {
 
     private void checkVersion() {
         int sdkVersion = Build.VERSION.SDK_INT;
-        if (sdkVersion < 20) {
+        if (sdkVersion < 23) {
             //create alert to be nice
             current = false;
             final AlertDialog.Builder builder = new AlertDialog.Builder(this);
