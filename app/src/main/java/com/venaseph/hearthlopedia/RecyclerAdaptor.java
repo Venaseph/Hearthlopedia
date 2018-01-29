@@ -1,6 +1,7 @@
 package com.venaseph.hearthlopedia;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,8 +19,19 @@ import pl.droidsonroids.gif.GifImageView;
  */
 
 public class RecyclerAdaptor extends RecyclerView.Adapter<RecyclerAdaptor.CustomViewHolder> {
+    //for bundle keys
+    public static final String CARD_FLAVOR = "CARD_FLAVOR";
+    private static final String CARD_CLASS = "CARD_CLASS";
+    private static final String CARD_TYPE = "CARD_TYPE";
+    private static final String CARD_ARTIST = "CARD_ARTIST";
+    private static final String CARD_SET = "CARD_SET";
+    private static final String CARD_RARITY = "CARD_RARITY";
+    private static final String CARD_NAME = "CARD_NAME";
+    private static final String CARD_IMG = "CARD_IMG";
 
-    public CardList cardList;
+    private static Intent intent;
+    private static Bundle extras;
+    public static CardList cardList;
 
     public RecyclerAdaptor(CardList cardList) {
         this.cardList = cardList;
@@ -80,13 +92,6 @@ public class RecyclerAdaptor extends RecyclerView.Adapter<RecyclerAdaptor.Custom
 
         public CustomViewHolder(final View itemView) {
             super(itemView);
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(itemView.getContext(), CardActivity.class);
-                    itemView.getContext().startActivity(intent);
-                }
-            });
 
             cardName = itemView.findViewById(R.id.cardTitle);
             cardText = itemView.findViewById(R.id.cardText);
@@ -100,13 +105,16 @@ public class RecyclerAdaptor extends RecyclerView.Adapter<RecyclerAdaptor.Custom
                 @Override
                 public void onClick(View view) {
                     Toast.makeText(itemView.getContext(), "Clicked:" + getAdapterPosition(), Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(itemView.getContext(), CardActivity.class);
+                    intent = new Intent(itemView.getContext(), CardActivity.class);
+                    extras = new Bundle();
+                    extras.putString(CARD_FLAVOR, cardList.Basic.get(getAdapterPosition()).getFlavor());
+                    extras.putString(CARD_IMG, cardList.Basic.get(getAdapterPosition()).getImg());
+                    //intent.putExtras(extras);
                     itemView.getContext().startActivity(intent);
                 }
             });
 
         }
-
     }
 
 }
