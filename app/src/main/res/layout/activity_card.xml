@@ -40,18 +40,18 @@
         app:layout_constraintTop_toBottomOf="@+id/cardImageView" />
 
     <TextView
-        android:id="@+id/classTextView"
+        android:id="@+id/rarityTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="8dp"
-        android:text="Class"
+        android:layout_marginTop="4dp"
+        android:text="Rarity"
         android:textAlignment="center"
         android:textColor="@color/colorPrimary"
         android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/flavorTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/textTextView" />
 
     <TextView
         android:id="@+id/typeTextView"
@@ -65,20 +65,20 @@
         android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/classTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/rarityTextView" />
 
     <TextView
         android:id="@+id/artistTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="25dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:text="Artist"
         android:textColor="@color/colorPrimary"
         android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/flavorTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/textTextView" />
 
     <TextView
         android:id="@+id/setTextView"
@@ -94,14 +94,16 @@
         app:layout_constraintTop_toBottomOf="@+id/artistTextView" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/dustImageVIew"
         android:layout_width="57dp"
-        android:layout_height="72dp"
+        android:layout_height="62dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/typeTextView"
+        app:layout_constraintTop_toBottomOf="@+id/textTextView"
         app:srcCompat="@drawable/dust" />
 
     <TextView
@@ -110,21 +112,38 @@
         android:layout_height="0dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="342dp"
+        android:layout_marginTop="35dp"
         android:text="400"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/cardImageView" />
+        app:layout_constraintTop_toBottomOf="@+id/textTextView" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="47dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dustImageVIew" />
 
     <TextView
         android:id="@+id/textTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="text"
-        tools:layout_editor_absoluteX="245dp"
-        tools:layout_editor_absoluteY="445dp" />
+        android:layout_marginEnd="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="8dp"
+        android:text="Card Text"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/flavorTextView" />
 
 </android.support.constraint.ConstraintLayout>

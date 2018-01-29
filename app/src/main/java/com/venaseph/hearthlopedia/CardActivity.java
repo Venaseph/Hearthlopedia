@@ -11,7 +11,7 @@ import com.squareup.picasso.Picasso;
 public class CardActivity extends AppCompatActivity {
     private Toolbar toolBar;
     private ImageView cardImageView;
-    private TextView flavorTextView, classTextView, typeTextView, artistTextView, setTextView, costTextView, textTextView;
+    private TextView flavorTextView, rarityTextView, typeTextView, artistTextView, setTextView, costTextView, textTextView;
     private String rarity, name;
     private Bundle extras;
 
@@ -22,7 +22,7 @@ public class CardActivity extends AppCompatActivity {
 
         cardImageView = findViewById(R.id.cardImgView);
         flavorTextView = findViewById(R.id.flavorTextView);
-        classTextView = findViewById(R.id.classTextView);
+        rarityTextView = findViewById(R.id.rarityTextView);
         typeTextView = findViewById(R.id.typeTextView);
         artistTextView = findViewById(R.id.artistTextView);
         setTextView = findViewById(R.id.setTextView);
@@ -47,6 +47,7 @@ public class CardActivity extends AppCompatActivity {
             setTextView.setText(getIntent().getExtras().getString("CARD_SET"));
             costTextView.setText(getIntent().getExtras().getString("CARD_COST"));
             rarity = getIntent().getExtras().getString("CARD_FLAVOR");
+            rarityTextView.setText(rarity);
             name = getIntent().getExtras().getString("CARD_NAME");
         }
 

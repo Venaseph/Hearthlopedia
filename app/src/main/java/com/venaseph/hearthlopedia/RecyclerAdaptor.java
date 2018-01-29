@@ -20,8 +20,7 @@ import pl.droidsonroids.gif.GifImageView;
 
 public class RecyclerAdaptor extends RecyclerView.Adapter<RecyclerAdaptor.CustomViewHolder> {
     //for bundle keys
-    public static final String CARD_FLAVOR = "CARD_FLAVOR";
-    private static final String CARD_CLASS = "CARD_CLASS";
+    private static final String CARD_FLAVOR = "CARD_FLAVOR";
     private static final String CARD_TYPE = "CARD_TYPE";
     private static final String CARD_ARTIST = "CARD_ARTIST";
     private static final String CARD_SET = "CARD_SET";
@@ -31,7 +30,7 @@ public class RecyclerAdaptor extends RecyclerView.Adapter<RecyclerAdaptor.Custom
     private static final String CARD_TEXT = "CARD_TEXT";
 
     private static Intent intent;
-    private static Bundle extras;
+    public static Bundle extras;
     public static CardList cardList;
 
     public RecyclerAdaptor(CardList cardList) {
@@ -107,11 +106,10 @@ public class RecyclerAdaptor extends RecyclerView.Adapter<RecyclerAdaptor.Custom
                 public void onClick(View view) {
                     Toast.makeText(itemView.getContext(), "Clicked:" + getAdapterPosition(), Toast.LENGTH_SHORT).show();
                     intent = new Intent(itemView.getContext(), CardActivity.class);
-                    extras = new Bundle();
+                    extras = intent.getExtras();
                         extras.putString(CARD_IMG, cardList.Basic.get(getAdapterPosition()).getImg());
                         extras.putString(CARD_FLAVOR, cardList.Basic.get(getAdapterPosition()).getFlavor());
                         extras.putString(CARD_TEXT, cardList.Basic.get(getAdapterPosition()).getText());
-                        //extras.putString(CARD_CLASS, cardList.Basic.get(getAdapterPosition()).getFlavor());
                         extras.putString(CARD_TYPE, cardList.Basic.get(getAdapterPosition()).getType());
                         extras.putString(CARD_ARTIST, cardList.Basic.get(getAdapterPosition()).getArtist());
                         extras.putString(CARD_SET, cardList.Basic.get(getAdapterPosition()).getCardSet());
