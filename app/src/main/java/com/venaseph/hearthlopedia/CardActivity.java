@@ -52,11 +52,15 @@ public class CardActivity extends AppCompatActivity {
         setTextView.setText(card.getCardSet());
         costTextView.setText(card.getCost());
         //deal with inline html for all versions
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-            textTextView.setText(Html.fromHtml(card.getText(),Html.FROM_HTML_MODE_LEGACY));
-        } else {
-            textTextView.setText(Html.fromHtml(card.getText()));
+        textTextView.setText(card.getText());
+        if (card.getText() != null) {
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+                textTextView.setText(Html.fromHtml(card.getText(),Html.FROM_HTML_MODE_LEGACY));
+            } else {
+                textTextView.setText(Html.fromHtml(card.getText()));
+            }
         }
+
 
 
 
