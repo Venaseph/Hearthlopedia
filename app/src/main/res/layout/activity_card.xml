@@ -13,13 +13,12 @@
         android:layout_height="56dp"
         android:background="@color/colorPrimary" />
 
-    <pl.droidsonroids.gif.GifImageView
-        android:id="@+id/cardImageView"
+    <ImageView
+        android:id="@+id/cardImgView"
         android:layout_width="159dp"
         android:layout_height="233dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:src="@drawable/leeroy"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
@@ -37,7 +36,7 @@
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardImageView" />
+        app:layout_constraintTop_toBottomOf="@+id/cardImgView" />
 
     <TextView
         android:id="@+id/rarityTextView"

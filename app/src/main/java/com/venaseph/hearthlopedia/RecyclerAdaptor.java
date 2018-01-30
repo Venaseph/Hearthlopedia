@@ -1,7 +1,6 @@
 package com.venaseph.hearthlopedia;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,18 +18,8 @@ import pl.droidsonroids.gif.GifImageView;
  */
 
 public class RecyclerAdaptor extends RecyclerView.Adapter<RecyclerAdaptor.CustomViewHolder> {
-    //for bundle keys
-    private static final String CARD_FLAVOR = "CARD_FLAVOR";
-    private static final String CARD_TYPE = "CARD_TYPE";
-    private static final String CARD_ARTIST = "CARD_ARTIST";
-    private static final String CARD_SET = "CARD_SET";
-    private static final String CARD_RARITY = "CARD_RARITY";
-    private static final String CARD_NAME = "CARD_NAME";
-    private static final String CARD_IMG = "CARD_IMG";
-    private static final String CARD_TEXT = "CARD_TEXT";
 
     private static Intent intent;
-    public static Bundle extras;
     public static CardList cardList;
 
     public RecyclerAdaptor(CardList cardList) {
@@ -60,7 +49,7 @@ public class RecyclerAdaptor extends RecyclerView.Adapter<RecyclerAdaptor.Custom
         // Could have made values protected in class, but meh
         holder.cardName.setText(card.getName());
         holder.cardText.setText(card.getText());
-        holder.cardFlavor.setText(card.getFlavor());
+        holder.cardFlavor.setText("\"" + card.getFlavor() + "\"");
 
         // Handles dust value of card
         if (card.getRarity() != null) {
@@ -82,7 +71,7 @@ public class RecyclerAdaptor extends RecyclerView.Adapter<RecyclerAdaptor.Custom
     }
 
     public static class CustomViewHolder extends RecyclerView.ViewHolder {
-
+        static final String CARD_KEY = "CARD_KEY";
         private TextView cardName;
         private TextView cardText;
         private TextView cardFlavor;
@@ -106,16 +95,7 @@ public class RecyclerAdaptor extends RecyclerView.Adapter<RecyclerAdaptor.Custom
                 public void onClick(View view) {
                     Toast.makeText(itemView.getContext(), "Clicked:" + getAdapterPosition(), Toast.LENGTH_SHORT).show();
                     intent = new Intent(itemView.getContext(), CardActivity.class);
-                    extras = intent.getExtras();
-                        extras.putString(CARD_IMG, cardList.Basic.get(getAdapterPosition()).getImg());
-                        extras.putString(CARD_FLAVOR, cardList.Basic.get(getAdapterPosition()).getFlavor());
-                        extras.putString(CARD_TEXT, cardList.Basic.get(getAdapterPosition()).getText());
-                        extras.putString(CARD_TYPE, cardList.Basic.get(getAdapterPosition()).getType());
-                        extras.putString(CARD_ARTIST, cardList.Basic.get(getAdapterPosition()).getArtist());
-                        extras.putString(CARD_SET, cardList.Basic.get(getAdapterPosition()).getCardSet());
-                        extras.putString(CARD_RARITY, cardList.Basic.get(getAdapterPosition()).getRarity());
-                        extras.putString(CARD_NAME, cardList.Basic.get(getAdapterPosition()).getName());
-                    //intent.putExtras(extras);
+                    intent.putExtra(CARD_KEY,getAdapterPosition());
                     itemView.getContext().startActivity(intent);
                 }
             });

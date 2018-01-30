@@ -10,17 +10,21 @@ import com.squareup.picasso.Picasso;
 
 public class CardActivity extends AppCompatActivity {
     private Toolbar toolBar;
-    private ImageView cardImageView;
     private TextView flavorTextView, rarityTextView, typeTextView, artistTextView, setTextView, costTextView, textTextView;
+    private ImageView cardImgView;
     private String rarity, name;
-    private Bundle extras;
+    private int key;
+    static Card card;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card);
 
-        cardImageView = findViewById(R.id.cardImgView);
+        key = getIntent().getExtras().getInt(RecyclerAdaptor.CustomViewHolder.CARD_KEY);
+        card = RecyclerAdaptor.cardList.Basic.get(key);
+
+        cardImgView = findViewById(R.id.cardImgView);
         flavorTextView = findViewById(R.id.flavorTextView);
         rarityTextView = findViewById(R.id.rarityTextView);
         typeTextView = findViewById(R.id.typeTextView);
@@ -30,28 +34,23 @@ public class CardActivity extends AppCompatActivity {
         textTextView = findViewById(R.id.textTextView);
 
         toolBarSetup();
-        getBundleValues();
+        setCardValues();
 
     }
 
-    private void getBundleValues() {
-        //change value to static key from recycler
-        extras = getIntent().getExtras();
-        if (extras != null) {
-            Picasso.with(this).load(getIntent().getExtras().getString("CARD_IMG")).into(cardImageView);
-            flavorTextView.setText(getIntent().getExtras().getString("CARD_FLAVOR"));
-            textTextView.setText(getIntent().getExtras().getString("CARD_TEXT"));
-            //classTextView.setText(getIntent().getExtras().getString("CARD_CLASS"));
-            typeTextView.setText(getIntent().getExtras().getString("CARD_TYPE"));
-            artistTextView.setText(getIntent().getExtras().getString("CARD_ARTIST"));
-            setTextView.setText(getIntent().getExtras().getString("CARD_SET"));
-            costTextView.setText(getIntent().getExtras().getString("CARD_COST"));
-            rarity = getIntent().getExtras().getString("CARD_FLAVOR");
-            rarityTextView.setText(rarity);
-            name = getIntent().getExtras().getString("CARD_NAME");
-        }
+    private void setCardValues() {
+        Picasso.with(this).load(card.getImg()).into(cardImgView);
+        flavorTextView.setText("\"" + card.getFlavor() + "\"");
+        rarityTextView.setText(card.getRarity());
+        typeTextView.setText(card.getType());
+        artistTextView.setText(card.getArtist());
+        setTextView.setText(card.getCardSet());
+        costTextView.setText(card.getCost());
+        textTextView.setText(card.getText());
+
 
     }
+
 
     private void toolBarSetup() {
         //Needs work, frag/logo/search functionality
