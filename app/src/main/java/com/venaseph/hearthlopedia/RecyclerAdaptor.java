@@ -1,5 +1,6 @@
 package com.venaseph.hearthlopedia;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.widget.RecyclerView;
@@ -24,9 +25,11 @@ public class RecyclerAdaptor extends RecyclerView.Adapter<RecyclerAdaptor.Custom
 
     private static Intent intent;
     public static CardList cardList;
+    private Context context;
 
-    public RecyclerAdaptor(CardList cardList) {
+    public RecyclerAdaptor(CardList cardList, Context context) {
         this.cardList = cardList;
+        this.context = context;
     }
 
     @Override
@@ -73,20 +76,20 @@ public class RecyclerAdaptor extends RecyclerView.Adapter<RecyclerAdaptor.Custom
         holder.cardCost.setText(cost);
         Glide.with(holder.cardImg.getContext()).load(card.getImg()).transition(DrawableTransitionOptions.withCrossFade()).into(holder.cardImg);
 
-//        //set up Sharedprefs populate stars
-//        holder.sharedPref = this.getSharedPreferences("com.venaseph.hearthlopedia", Context.MODE_PRIVATE);
-//        holder.ratingBar.setRating(holder.sharedPref.getFloat(holder.name, 0));
-//        //Listener for state change on stars
-//        holder.ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
-//            @Override
-//            public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
-//                holder.stars = ratingBar.getRating();
-//                holder.sharedPref.edit().putFloat(holder.name, holder.stars).apply();
-//            }
-//        });
+        //set up Sharedprefs populate stars
+        holder.name = card.getName();
+        holder.ratingBar.setRating(holder.sharedPref.getFloat(holder.name, 0));
+        //Listener for state change on stars
+        holder.ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
+                holder.stars = ratingBar.getRating();
+                holder.sharedPref.edit().putFloat(holder.name, holder.stars).apply();
+            }
+        });
     }
 
-    public static class CustomViewHolder extends RecyclerView.ViewHolder {
+    public class CustomViewHolder extends RecyclerView.ViewHolder {
         static final String CARD_KEY = "CARD_KEY";
         private TextView cardName, cardText, cardFlavor, cardCost;
         private GifImageView cardImg;
@@ -107,7 +110,7 @@ public class RecyclerAdaptor extends RecyclerView.Adapter<RecyclerAdaptor.Custom
             cardImg = itemView.findViewById(R.id.cardImgView);
             moreButton = itemView.findViewById(R.id.moreButton);
             ratingBar = itemView.findViewById(R.id.ratingBar);
-
+            sharedPref = context.getSharedPreferences("com.venaseph.hearthlopedia", Context.MODE_PRIVATE);
             moreButton.setOnClickListener(new View.OnClickListener() {
 
                 @Override

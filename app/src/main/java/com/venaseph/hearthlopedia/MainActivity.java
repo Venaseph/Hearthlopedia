@@ -1,5 +1,6 @@
 package com.venaseph.hearthlopedia;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager rvLayoutManager;
     private RecyclerView.Adapter rvAdaptor;
     public CardList cardList;
+    private Context context = this;
 
 
     @Override
@@ -83,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     //View hierarchy issues, run on main thread
                     public void run() {
-                        rvAdaptor = new RecyclerAdaptor(cardList);
+                        rvAdaptor = new RecyclerAdaptor(cardList, context);
                         recyclerView.setAdapter(rvAdaptor);
                     }
                 });
