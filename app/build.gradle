@@ -35,6 +35,7 @@ dependencies {
     compile 'com.google.code.gson:gson:2.8.2'
     // handles image cache/load
     compile 'com.squareup.picasso:picasso:2.5.2'
+
     // handles gifViews
     compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.10'
 }

@@ -3,15 +3,16 @@ package com.venaseph.hearthlopedia;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import pl.droidsonroids.gif.GifImageView;
+
 public class CardActivity extends AppCompatActivity {
     private Toolbar toolBar;
     private TextView flavorTextView, rarityTextView, typeTextView, artistTextView, setTextView, costTextView, textTextView;
-    private ImageView cardImgView;
+    private GifImageView cardImgView;
     private String rarity, name;
     private int key;
     static Card card;
@@ -39,7 +40,8 @@ public class CardActivity extends AppCompatActivity {
     }
 
     private void setCardValues() {
-        Picasso.with(this).load(card.getImg()).into(cardImgView);
+        Picasso.with(this).load(card.getImgGold()).into(cardImgView);
+
         flavorTextView.setText("\"" + card.getFlavor() + "\"");
         rarityTextView.setText(card.getRarity());
         typeTextView.setText(card.getType());

@@ -13,10 +13,10 @@
         android:layout_height="56dp"
         android:background="@color/colorPrimary" />
 
-    <ImageView
+    <pl.droidsonroids.gif.GifImageView
         android:id="@+id/cardImgView"
-        android:layout_width="159dp"
-        android:layout_height="233dp"
+        android:layout_width="261dp"
+        android:layout_height="347dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         app:layout_constraintEnd_toEndOf="parent"
