@@ -5,7 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 
 import pl.droidsonroids.gif.GifImageView;
 
@@ -40,7 +41,7 @@ public class CardActivity extends AppCompatActivity {
     }
 
     private void setCardValues() {
-        Picasso.with(this).load(card.getImgGold()).into(cardImgView);
+        Glide.with(this).load(card.getImgGold()).transition(DrawableTransitionOptions.withCrossFade()).into(cardImgView);
 
         flavorTextView.setText("\"" + card.getFlavor() + "\"");
         rarityTextView.setText(card.getRarity());

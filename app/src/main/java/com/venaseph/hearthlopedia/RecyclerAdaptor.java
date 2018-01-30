@@ -9,7 +9,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 
 import pl.droidsonroids.gif.GifImageView;
 
@@ -66,7 +67,7 @@ public class RecyclerAdaptor extends RecyclerView.Adapter<RecyclerAdaptor.Custom
         }
 
         holder.cardCost.setText(cost);
-        Picasso.with(holder.cardImg.getContext()).load(card.getImg()).into(holder.cardImg);
+        Glide.with(holder.cardImg.getContext()).load(card.getImg()).transition(DrawableTransitionOptions.withCrossFade()).into(holder.cardImg);
 
     }
 
