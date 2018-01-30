@@ -1,11 +1,13 @@
 package com.venaseph.hearthlopedia;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,7 +45,7 @@ public class RecyclerAdaptor extends RecyclerView.Adapter<RecyclerAdaptor.Custom
     }
 
     @Override
-    public void onBindViewHolder(RecyclerAdaptor.CustomViewHolder holder, int position) {
+    public void onBindViewHolder(final RecyclerAdaptor.CustomViewHolder holder, int position) {
 
         final Card card = cardList.Basic.get(position);
         String cost = "0";
@@ -71,16 +73,29 @@ public class RecyclerAdaptor extends RecyclerView.Adapter<RecyclerAdaptor.Custom
         holder.cardCost.setText(cost);
         Glide.with(holder.cardImg.getContext()).load(card.getImg()).transition(DrawableTransitionOptions.withCrossFade()).into(holder.cardImg);
 
+//        //set up Sharedprefs populate stars
+//        holder.sharedPref = this.getSharedPreferences("com.venaseph.hearthlopedia", Context.MODE_PRIVATE);
+//        holder.ratingBar.setRating(holder.sharedPref.getFloat(holder.name, 0));
+//        //Listener for state change on stars
+//        holder.ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+//            @Override
+//            public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
+//                holder.stars = ratingBar.getRating();
+//                holder.sharedPref.edit().putFloat(holder.name, holder.stars).apply();
+//            }
+//        });
     }
 
     public static class CustomViewHolder extends RecyclerView.ViewHolder {
         static final String CARD_KEY = "CARD_KEY";
-        private TextView cardName;
-        private TextView cardText;
-        private TextView cardFlavor;
-        private TextView cardCost;
+        private TextView cardName, cardText, cardFlavor, cardCost;
         private GifImageView cardImg;
         private Button moreButton;
+
+        private SharedPreferences sharedPref;
+        private RatingBar ratingBar;
+        private float stars;
+        private String name;
 
         public CustomViewHolder(final View itemView) {
             super(itemView);
@@ -91,6 +106,7 @@ public class RecyclerAdaptor extends RecyclerView.Adapter<RecyclerAdaptor.Custom
             cardCost = itemView.findViewById(R.id.dustTextView);
             cardImg = itemView.findViewById(R.id.cardImgView);
             moreButton = itemView.findViewById(R.id.moreButton);
+            ratingBar = itemView.findViewById(R.id.ratingBar);
 
             moreButton.setOnClickListener(new View.OnClickListener() {
 

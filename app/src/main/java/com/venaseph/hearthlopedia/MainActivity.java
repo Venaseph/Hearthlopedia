@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
 
         toolBarSetup();
 
-
         recyclerViewSetup();
         cardList = fetchJSON();
 
