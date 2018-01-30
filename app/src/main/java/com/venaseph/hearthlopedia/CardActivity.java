@@ -3,6 +3,7 @@ package com.venaseph.hearthlopedia;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -42,14 +43,21 @@ public class CardActivity extends AppCompatActivity {
 
     private void setCardValues() {
         Glide.with(this).load(card.getImgGold()).transition(DrawableTransitionOptions.withCrossFade()).into(cardImgView);
-
-        flavorTextView.setText("\"" + card.getFlavor() + "\"");
+        if (card.getFlavor() != null) {
+            flavorTextView.setText("\"" + card.getFlavor() + "\"");
+        }
         rarityTextView.setText(card.getRarity());
         typeTextView.setText(card.getType());
         artistTextView.setText(card.getArtist());
         setTextView.setText(card.getCardSet());
         costTextView.setText(card.getCost());
-        textTextView.setText(card.getText());
+        //deal with inline html for all versions
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            textTextView.setText(Html.fromHtml(card.getText(),Html.FROM_HTML_MODE_LEGACY));
+        } else {
+            textTextView.setText(Html.fromHtml(card.getText()));
+        }
+
 
 
     }

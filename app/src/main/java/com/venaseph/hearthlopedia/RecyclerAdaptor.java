@@ -50,7 +50,9 @@ public class RecyclerAdaptor extends RecyclerView.Adapter<RecyclerAdaptor.Custom
         // Could have made values protected in class, but meh
         holder.cardName.setText(card.getName());
         holder.cardText.setText(card.getText());
-        holder.cardFlavor.setText("\"" + card.getFlavor() + "\"");
+        if (card.getFlavor() != null) {
+            holder.cardFlavor.setText("\"" + card.getFlavor() + "\"");
+        }
 
         // Handles dust value of card
         if (card.getRarity() != null) {

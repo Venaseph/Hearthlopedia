@@ -63,7 +63,6 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
-        android:text="cardFlavor"
         android:textColor="@color/colorPrimary"
         android:textSize="12sp"
         android:textStyle="italic"
