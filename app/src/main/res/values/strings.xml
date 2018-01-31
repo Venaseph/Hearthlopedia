@@ -3,6 +3,8 @@
     <string name="cardinfo">Card Information</string>
     <string name="classinfo">Class</string>
     <string name="typeinfo">Type</string>
-    <string name="Rarity">Rarity</string>
-    <string name="Set">Set</string>
+    <string name="rarity">Rarity</string>
+    <string name="set">Set</string>
+    <string name="artist">Artist</string>
+    <string name="notAvail">N/A</string>
 </resources>

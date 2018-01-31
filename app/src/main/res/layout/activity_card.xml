@@ -23,8 +23,8 @@
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/cardImgView"
-        android:layout_width="261dp"
-        android:layout_height="347dp"
+        android:layout_width="294dp"
+        android:layout_height="340dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,7 +38,7 @@
         android:layout_marginEnd="25dp"
         android:layout_marginStart="25dp"
         android:layout_marginTop="8dp"
-        android:text="flavor"
+        android:text="@string/notAvail"
         android:textAlignment="center"
         android:textColor="@color/colorPrimary"
         android:textStyle="italic"
@@ -46,69 +46,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardImgView" />
 
-    <TextView
-        android:id="@+id/rarityTextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="rarity"
-        android:textAlignment="center"
-        android:textColor="@color/colorPrimary"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="640dp" />
-
-    <TextView
-        android:id="@+id/typeTextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/typeinfo"
-        android:textAlignment="center"
-        android:textColor="@color/colorPrimary"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rarityTextView" />
-
-    <TextView
-        android:id="@+id/artistTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="12dp"
-        android:text="artist"
-        android:textColor="@color/colorPrimary"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="640dp" />
-
-    <TextView
-        android:id="@+id/setTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="25dp"
-        android:layout_marginTop="8dp"
-        android:text="set"
-        android:textColor="@color/colorPrimary"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/artistTextView" />
-
     <RatingBar
         android:id="@+id/ratingBar"
         android:layout_width="wrap_content"
         android:layout_height="47dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="636dp"
+        android:layout_marginTop="16dp"
         android:theme="@style/RatingBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/cardImgView" />
+        app:layout_constraintTop_toBottomOf="@+id/raceBarTextView" />
 
     <TextView
         android:id="@+id/infoBarTextView"
@@ -199,7 +147,7 @@
         app:layout_constraintTop_toTopOf="@+id/cardImgView" />
 
     <TextView
-        android:id="@+id/cardInfoTitleTextView"
+        android:id="@+id/cardInfoLabelTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -213,7 +161,7 @@
         app:layout_constraintTop_toTopOf="@+id/infoBarTextView" />
 
     <TextView
-        android:id="@+id/typeInfoTitleTextView"
+        android:id="@+id/typeLabelTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -225,6 +173,104 @@
         app:layout_constraintBottom_toTopOf="@+id/sepOneTextView"
         app:layout_constraintStart_toStartOf="@+id/typeBarTextView"
         app:layout_constraintTop_toTopOf="@+id/typeBarTextView" />
+
+    <TextView
+        android:id="@+id/rarityLabelTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/rarity"
+        android:textColor="@color/colorBack"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/setBarTextView"
+        app:layout_constraintStart_toStartOf="@+id/rarityBarTextView"
+        app:layout_constraintTop_toTopOf="@+id/rarityBarTextView" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/set"
+        android:textColor="@color/colorBack"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/raceBarTextView"
+        app:layout_constraintStart_toStartOf="@+id/setBarTextView"
+        app:layout_constraintTop_toTopOf="@+id/setBarTextView" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/artist"
+        android:textColor="@color/colorBack"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/raceBarTextView"
+        app:layout_constraintStart_toStartOf="@+id/raceBarTextView"
+        app:layout_constraintTop_toTopOf="@+id/raceBarTextView" />
+
+    <TextView
+        android:id="@+id/typeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/notAvail"
+        android:textColor="@color/seperBarColor"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/rarityBarTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/typeBarTextView" />
+
+    <TextView
+        android:id="@+id/rarityTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/notAvail"
+        android:textColor="@color/seperBarColor"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/setBarTextView"
+        app:layout_constraintEnd_toEndOf="@+id/rarityBarTextView"
+        app:layout_constraintTop_toTopOf="@+id/rarityBarTextView" />
+
+    <TextView
+        android:id="@+id/setTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/notAvail"
+        android:textColor="@color/seperBarColor"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/raceBarTextView"
+        app:layout_constraintEnd_toEndOf="@+id/setBarTextView"
+        app:layout_constraintTop_toTopOf="@+id/setBarTextView" />
+
+    <TextView
+        android:id="@+id/artistTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/notAvail"
+        android:textColor="@color/seperBarColor"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="@+id/raceBarTextView"
+        app:layout_constraintEnd_toEndOf="@+id/raceBarTextView"
+        app:layout_constraintTop_toTopOf="@+id/raceBarTextView" />
 
 </android.support.constraint.ConstraintLayout>
 
