@@ -4,4 +4,8 @@
     <color name="colorPrimaryDark">#3a2209</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorBack">#fcf3e9</color>
+    <color name="goldenStar">#FFD700</color>
+    <color name="emptyStar">#c0c0c0</color>
+    <color name="titleBarColor">#eaa764</color>
+    <color name="seperBarColor">#c96604</color>
 </resources>

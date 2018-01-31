@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">HearthMarket</string>
+    <string name="cardinfo">Card Information</string>
+    <string name="classinfo">Class</string>
+    <string name="typeinfo">Type</string>
+    <string name="Rarity">Rarity</string>
+    <string name="Set">Set</string>
 </resources>
