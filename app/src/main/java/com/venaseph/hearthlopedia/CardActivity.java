@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.Html;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -41,8 +40,6 @@ public class CardActivity extends AppCompatActivity {
         typeTextView = findViewById(R.id.typeTextView);
         artistTextView = findViewById(R.id.artistTextView);
         setTextView = findViewById(R.id.setTextView);
-        costTextView = findViewById(R.id.costTextView);
-        textTextView = findViewById(R.id.textTextView);
         ratingBar = findViewById(R.id.ratingBar);
         name = card.getName();
 
@@ -77,16 +74,16 @@ public class CardActivity extends AppCompatActivity {
         typeTextView.setText(card.getType());
         artistTextView.setText(card.getArtist());
         setTextView.setText(card.getCardSet());
-        costTextView.setText(card.getCost());
+
         //deal with inline html for all versions
-        textTextView.setText(card.getText());
-        if (card.getText() != null) {
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-                textTextView.setText(Html.fromHtml(card.getText(),Html.FROM_HTML_MODE_LEGACY));
-            } else {
-                textTextView.setText(Html.fromHtml(card.getText()));
-            }
-        }
+//        textTextView.setText(card.getText());
+//        if (card.getText() != null) {
+//            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+//                textTextView.setText(Html.fromHtml(card.getText(),Html.FROM_HTML_MODE_LEGACY));
+//            } else {
+//                textTextView.setText(Html.fromHtml(card.getText()));
+//            }
+//        }
 
     }
 

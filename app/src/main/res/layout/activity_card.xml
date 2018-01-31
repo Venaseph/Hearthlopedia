@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CardActivity">
+
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -30,6 +38,7 @@
         android:layout_marginEnd="25dp"
         android:layout_marginStart="25dp"
         android:layout_marginTop="8dp"
+        android:text="flavor"
         android:textAlignment="center"
         android:textColor="@color/colorPrimary"
         android:textStyle="italic"
@@ -41,14 +50,14 @@
         android:id="@+id/rarityTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="24dp"
+        android:text="rarity"
         android:textAlignment="center"
         android:textColor="@color/colorPrimary"
         android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textTextView" />
+        tools:layout_editor_absoluteY="640dp" />
 
     <TextView
         android:id="@+id/typeTextView"
@@ -56,6 +65,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginTop="8dp"
+        android:text="@string/typeinfo"
         android:textAlignment="center"
         android:textColor="@color/colorPrimary"
         android:textSize="12sp"
@@ -67,13 +77,13 @@
         android:id="@+id/artistTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="25dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginEnd="12dp"
+        android:text="artist"
         android:textColor="@color/colorPrimary"
         android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textTextView" />
+        tools:layout_editor_absoluteY="640dp" />
 
     <TextView
         android:id="@+id/setTextView"
@@ -81,39 +91,12 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="25dp"
         android:layout_marginTop="8dp"
+        android:text="set"
         android:textColor="@color/colorPrimary"
         android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/artistTextView" />
-
-    <ImageView
-        android:id="@+id/dustImageVIew"
-        android:layout_width="57dp"
-        android:layout_height="62dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textTextView"
-        app:srcCompat="@drawable/dust" />
-
-    <TextView
-        android:id="@+id/costTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="35dp"
-        android:text="400"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textTextView" />
 
     <RatingBar
         android:id="@+id/ratingBar"
@@ -121,23 +104,128 @@
         android:layout_height="47dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="636dp"
         android:theme="@style/RatingBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dustImageVIew" />
+        app:layout_constraintTop_toTopOf="@+id/cardImgView" />
 
     <TextView
-        android:id="@+id/textTextView"
+        android:id="@+id/infoBarTextView"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="25dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="8dp"
-        android:textAlignment="center"
-        android:textColor="@color/colorPrimary"
-        android:textSize="12sp"
+        android:layout_height="35dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/flavorTextView" />
 
+    <TextView
+        android:id="@+id/typeBarTextView"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:background="@color/titleBarColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/infoBarTextView" />
+
+    <TextView
+        android:id="@+id/sepOneTextView"
+        android:layout_width="0dp"
+        android:layout_height=".5dp"
+        android:background="@color/seperBarColor"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/typeBarTextView" />
+
+    <TextView
+        android:id="@+id/rarityBarTextView"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:background="@color/titleBarColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sepOneTextView" />
+
+    <TextView
+        android:id="@+id/sepTwoTextView"
+        android:layout_width="0dp"
+        android:layout_height=".5dp"
+        android:background="@color/seperBarColor"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rarityBarTextView" />
+
+    <TextView
+        android:id="@+id/setBarTextView"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:background="@color/titleBarColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sepTwoTextView" />
+
+    <TextView
+        android:id="@+id/sepThreeTextView"
+        android:layout_width="0dp"
+        android:layout_height=".5dp"
+        android:background="@color/seperBarColor"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/setBarTextView" />
+
+    <TextView
+        android:id="@+id/raceBarTextView"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:background="@color/titleBarColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sepThreeTextView" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="692dp"
+        android:text="Back to Top"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cardImgView" />
+
+    <TextView
+        android:id="@+id/cardInfoTitleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/cardinfo"
+        android:textColor="@color/colorBack"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/typeBarTextView"
+        app:layout_constraintStart_toStartOf="@+id/infoBarTextView"
+        app:layout_constraintTop_toTopOf="@+id/infoBarTextView" />
+
+    <TextView
+        android:id="@+id/typeInfoTitleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/typeinfo"
+        android:textColor="@color/colorBack"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/sepOneTextView"
+        app:layout_constraintStart_toStartOf="@+id/typeBarTextView"
+        app:layout_constraintTop_toTopOf="@+id/typeBarTextView" />
+
 </android.support.constraint.ConstraintLayout>
+
+</ScrollView>
