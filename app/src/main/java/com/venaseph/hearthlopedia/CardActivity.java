@@ -15,7 +15,7 @@ import pl.droidsonroids.gif.GifImageView;
 
 public class CardActivity extends AppCompatActivity {
     private Toolbar toolBar;
-    private TextView flavorTextView, rarityTextView, typeTextView, artistTextView, setTextView, costTextView, textTextView;
+    private TextView flavorTextView, rarityTextView, typeTextView, artistTextView, setTextView, nameTextView;
     private GifImageView cardImgView;
     private int key;
     private String name;
@@ -41,12 +41,11 @@ public class CardActivity extends AppCompatActivity {
         artistTextView = findViewById(R.id.artistTextView);
         setTextView = findViewById(R.id.setTextView);
         ratingBar = findViewById(R.id.ratingBar);
+        nameTextView = findViewById(R.id.nameTextView);
         name = card.getName();
 
         toolBarSetup();
         setCardValues();
-
-
 
         //set up Sharedprefs populate stars
         sharedPref = this.getSharedPreferences("com.venaseph.hearthlopedia", Context.MODE_PRIVATE);
@@ -70,6 +69,7 @@ public class CardActivity extends AppCompatActivity {
         if (card.getFlavor() != null) {
             flavorTextView.setText("\"" + card.getFlavor() + "\"");
         }
+        nameTextView.setText(card.getName());
         rarityTextView.setText(card.getRarity());
         typeTextView.setText(card.getType());
         artistTextView.setText(card.getArtist());
