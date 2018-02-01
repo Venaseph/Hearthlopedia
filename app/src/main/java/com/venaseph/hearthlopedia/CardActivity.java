@@ -1,7 +1,9 @@
 package com.venaseph.hearthlopedia;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -130,7 +132,7 @@ public class CardActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Share", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.info:
-                Toast.makeText(getApplicationContext(), "Info", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.hearthstonetopdecks.com/cards/" + card.getName().replaceAll(" ", "-"))));
                 break;
             case R.id.contact:
                 Toast.makeText(getApplicationContext(), "About", Toast.LENGTH_SHORT).show();
