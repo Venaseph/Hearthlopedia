@@ -74,7 +74,9 @@ public class RecyclerAdaptor extends RecyclerView.Adapter<RecyclerAdaptor.Custom
         }
 
         holder.cardCost.setText(cost);
-        Glide.with(holder.cardImg.getContext()).load(card.getImg()).transition(DrawableTransitionOptions.withCrossFade()).into(holder.cardImg);
+        if (card.getImg() != null) {
+            Glide.with(holder.cardImg.getContext()).load(card.getImg()).transition(DrawableTransitionOptions.withCrossFade()).into(holder.cardImg);
+        }
 
         //set up Sharedprefs populate stars
         holder.name = card.getName();
