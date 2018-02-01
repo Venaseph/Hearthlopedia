@@ -2,12 +2,16 @@ package com.venaseph.hearthlopedia;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -97,6 +101,17 @@ public class CardActivity extends AppCompatActivity {
     private void toolBarSetup() {
         toolBar = findViewById(R.id.app_bar);
         setSupportActionBar(toolBar);
+        //deal with status bar color since theme.appcompact will not correctly via xml
+        if (Build.VERSION.SDK_INT >= 21) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
+        }
+        // Get a support ActionBar corresponding to this toolbar
+        ActionBar ab = getSupportActionBar();
+        // Enable the Up button
+        ab.setDisplayHomeAsUpEnabled(true);
 
     }
 

@@ -12,19 +12,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
-        <activity android:name=".Intro_Splash"
-            android:parentActivityName=".MainActivity">
+        <activity
+            android:name=".Intro_Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" android:screenOrientation="portrait" />
-        <activity android:name=".CardActivity" android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".MainActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".CardActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop"
+            android:parentActivityName="com.venaseph.hearthlopedia.MainActivity"/>
 
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.venaseph.hearthlopedia.MainActivity"/>
+            android:value="com.venaseph.hearthlopedia.MainActivity" />
     </application>
 
 </manifest>
