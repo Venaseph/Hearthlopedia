@@ -15,7 +15,7 @@ import pl.droidsonroids.gif.GifImageView;
 
 public class CardActivity extends AppCompatActivity {
     private Toolbar toolBar;
-    private TextView flavorTextView, rarityTextView, typeTextView, artistTextView, setTextView, nameTextView;
+    private TextView flavorTextView, rarityTextView, typeTextView, artistTextView, setTextView, nameTextView, rateLabelTextView;
     private GifImageView cardImgView;
     private int key;
     private String name;
@@ -41,6 +41,7 @@ public class CardActivity extends AppCompatActivity {
         artistTextView = findViewById(R.id.artistTextView);
         setTextView = findViewById(R.id.setTextView);
         ratingBar = findViewById(R.id.ratingBar);
+        rateLabelTextView = findViewById(R.id.rateLabelTextView);
         nameTextView = findViewById(R.id.nameTextView);
         name = card.getName();
 
@@ -74,6 +75,7 @@ public class CardActivity extends AppCompatActivity {
         typeTextView.setText(card.getType());
         artistTextView.setText(card.getArtist());
         setTextView.setText(card.getCardSet());
+        rateLabelTextView.setText("Rate " + card.getName());
 
         //deal with inline html for all versions
 //        textTextView.setText(card.getText());
