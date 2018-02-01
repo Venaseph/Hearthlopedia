@@ -10,6 +10,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
@@ -94,10 +95,9 @@ public class CardActivity extends AppCompatActivity {
 
 
     private void toolBarSetup() {
-
         toolBar = findViewById(R.id.app_bar);
         setSupportActionBar(toolBar);
-        //toolBar.setLogo(R.drawable.hslogo);
+
     }
 
     @Override
@@ -109,6 +109,19 @@ public class CardActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch(item.getItemId()) {
+            case R.id.share:
+                Toast.makeText(getApplicationContext(), "Share", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.info:
+                Toast.makeText(getApplicationContext(), "Info", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.contact:
+                Toast.makeText(getApplicationContext(), "About", Toast.LENGTH_SHORT).show();
+                break;
+            default:
+        }
         return super.onOptionsItemSelected(item);
     }
 
