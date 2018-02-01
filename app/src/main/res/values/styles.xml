@@ -13,4 +13,18 @@
         <item name="colorControlActivated">@color/goldenStar</item>
     </style>
 
+    <!-- Menu Theme -->
+    <style name="CustomToolBarStyle" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="titleTextColor">@color/colorBack</item>
+    </style>
+
+    <!-- Menu Item Theme -->
+    <style name="CustomPopupStyle" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:background">@color/colorBack</item>
+        <item name="overlapAnchor">false</item>
+        <item name="android:dropDownVerticalOffset">-4dp</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
 </resources>

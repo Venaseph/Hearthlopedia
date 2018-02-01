@@ -7,4 +7,6 @@
     <string name="set">Set</string>
     <string name="artist">Artist</string>
     <string name="notAvail">N/A</string>
+    <string name="shareName">Share with Friends</string>
+    <string name="moreInfo">Get More Info</string>
 </resources>

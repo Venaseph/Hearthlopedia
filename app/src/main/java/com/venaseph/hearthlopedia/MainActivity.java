@@ -6,6 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,9 +55,20 @@ public class MainActivity extends AppCompatActivity {
 
     private void toolBarSetup() {
         //Needs work, frag/logo/search functionality
-        toolBar = findViewById(R.id.toolbar);
+        toolBar = findViewById(R.id.app_bar);
         setSupportActionBar(toolBar);
-        toolBar.setLogo(R.drawable.hslogo);
+        //toolBar.setLogo(R.drawable.hslogo);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     private CardList fetchJSON() {

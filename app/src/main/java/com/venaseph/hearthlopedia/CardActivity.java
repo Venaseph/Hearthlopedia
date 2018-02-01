@@ -91,10 +91,10 @@ public class CardActivity extends AppCompatActivity {
 
 
     private void toolBarSetup() {
-        //Needs work, frag/logo/search functionality
-        toolBar = findViewById(R.id.toolbar);
+
+        toolBar = findViewById(R.id.app_bar);
         setSupportActionBar(toolBar);
-        toolBar.setLogo(R.drawable.hslogo);
+        //toolBar.setLogo(R.drawable.hslogo);
 
     }
 }

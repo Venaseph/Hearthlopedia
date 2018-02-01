@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:elevation="4dp"
-        android:background="@color/colorPrimary" />
+    <include
+        layout = "@layout/app_bar"
+        android:id="@+id/app_bar"></include>
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -58,18 +56,18 @@
         android:layout_height="47dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="16dp"
         android:theme="@style/RatingBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/raceBarTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/ratingHeaderTextView" />
 
     <TextView
         android:id="@+id/infoBarTextView"
         android:layout_width="0dp"
         android:layout_height="35dp"
         android:layout_marginTop="10dp"
-        android:background="@color/colorPrimaryDark"
+        android:background="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameTextView" />
@@ -87,7 +85,7 @@
         android:id="@+id/sepOneTextView"
         android:layout_width="0dp"
         android:layout_height=".5dp"
-        android:background="@color/seperBarColor"
+        android:background="@color/colorPrimary"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -106,7 +104,7 @@
         android:id="@+id/sepTwoTextView"
         android:layout_width="0dp"
         android:layout_height=".5dp"
-        android:background="@color/seperBarColor"
+        android:background="@color/colorPrimary"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -125,7 +123,7 @@
         android:id="@+id/sepThreeTextView"
         android:layout_width="0dp"
         android:layout_height=".5dp"
-        android:background="@color/seperBarColor"
+        android:background="@color/colorPrimary"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -141,16 +139,16 @@
         app:layout_constraintTop_toBottomOf="@+id/sepThreeTextView" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/backTopTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="725dp"
-        android:text="Back to Top"
+        android:layout_marginTop="15dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/cardImgView" />
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
 
     <TextView
         android:id="@+id/cardInfoLabelTextView"
@@ -195,7 +193,7 @@
         app:layout_constraintTop_toTopOf="@+id/rarityBarTextView" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/setLabelTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -209,7 +207,7 @@
         app:layout_constraintTop_toTopOf="@+id/setBarTextView" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/artistLabelTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -294,6 +292,43 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/flavorTextView" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/raceBarTextView"
+        app:srcCompat="@drawable/charts" />
+
+    <TextView
+        android:id="@+id/ratingHeaderTextView"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/rateLabelTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Rate "
+        android:textAlignment="center"
+        android:textColor="@color/colorBack"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ratingHeaderTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/ratingHeaderTextView"
+        app:layout_constraintTop_toTopOf="@+id/ratingHeaderTextView" />
 
 
 </android.support.constraint.ConstraintLayout>
