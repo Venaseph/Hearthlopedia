@@ -113,6 +113,17 @@ public class RecyclerAdaptor extends RecyclerView.Adapter<RecyclerAdaptor.Custom
             moreButton = itemView.findViewById(R.id.moreButton);
             ratingBar = itemView.findViewById(R.id.ratingBar);
             sharedPref = context.getSharedPreferences("com.venaseph.hearthlopedia", Context.MODE_PRIVATE);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(itemView.getContext(), "Clicked:" + getAdapterPosition(), Toast.LENGTH_SHORT).show();
+                    intent = new Intent(itemView.getContext(), CardActivity.class);
+                    intent.putExtra(CARD_KEY,getAdapterPosition());
+                    itemView.getContext().startActivity(intent);
+                }
+            });
+
             moreButton.setOnClickListener(new View.OnClickListener() {
 
                 @Override
