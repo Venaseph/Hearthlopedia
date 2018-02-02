@@ -1,14 +1,20 @@
 package com.venaseph.hearthlopedia;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -56,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
     private void toolBarSetup() {
         toolBar = findViewById(R.id.app_bar);
         setSupportActionBar(toolBar);
+
         //deal with status bar color since theme.appcompact will not correctly via xml
         if (Build.VERSION.SDK_INT >= 21) {
             Window window = getWindow();
@@ -64,6 +71,54 @@ public class MainActivity extends AppCompatActivity {
             window.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
         }
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+
+        //hide stuff I don't want on the menu on the front page
+        MenuItem info = menu.findItem(R.id.info);
+        MenuItem share = menu.findItem(R.id.share);
+        info.setVisible(false);
+        share.setVisible(false);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch(item.getItemId()) {
+            case R.id.share:
+                Toast.makeText(getApplicationContext(), "Share", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.info:
+                Toast.makeText(getApplicationContext(), "Info", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.contact:
+                sendEmail();
+                break;
+            default:
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void sendEmail() {
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+
+        emailIntent.setData(Uri.parse("mailto:")).setType("text/plain");
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"cperagine@gmail.com"});
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Hey Hearthlopedia!");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "I love your app! You rock.");
+
+        try {
+            startActivity(Intent.createChooser(emailIntent, "send"));
+            finish();
+        } catch (android.content.ActivityNotFoundException ex) {
+            Toast.makeText(MainActivity.this, "No Client found", Toast.LENGTH_LONG).show();
+        }
     }
 
 

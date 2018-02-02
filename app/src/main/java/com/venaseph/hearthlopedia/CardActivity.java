@@ -135,11 +135,27 @@ public class CardActivity extends AppCompatActivity {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.hearthstonetopdecks.com/cards/" + card.getName().replaceAll(" ", "-"))));
                 break;
             case R.id.contact:
-                Toast.makeText(getApplicationContext(), "About", Toast.LENGTH_SHORT).show();
+                sendEmail();
                 break;
             default:
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void sendEmail() {
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+
+        emailIntent.setData(Uri.parse("mailto:")).setType("text/plain");
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"cperagine@gmail.com"});
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Hey Hearthlopedia!");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "I was looking at " + card.getName() + " and was thinking....");
+
+        try {
+            startActivity(Intent.createChooser(emailIntent, "send"));
+            finish();
+        } catch (android.content.ActivityNotFoundException ex) {
+            Toast.makeText(CardActivity.this, "No Client found", Toast.LENGTH_LONG).show();
+        }
     }
 
 
