@@ -42,7 +42,7 @@ public class CardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_card);
 
         key = getIntent().getExtras().getInt(RecyclerAdaptor.CustomViewHolder.CARD_KEY);
-        card = RecyclerAdaptor.cardList.Basic.get(key);
+        card = RecyclerAdaptor.cardList.Standard.get(key);
 
         cardImgView = findViewById(R.id.cardImgView);
         flavorTextView = findViewById(R.id.flavorTextView);
@@ -132,7 +132,7 @@ public class CardActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Share", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.info:
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.hearthstonetopdecks.com/cards/" + card.getName().replaceAll(" ", "-"))));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://hearthstone.gamepedia.com/" + card.getName().replaceAll(" ", "_"))));
                 break;
             case R.id.contact:
                 sendEmail();
@@ -146,7 +146,7 @@ public class CardActivity extends AppCompatActivity {
         Intent emailIntent = new Intent(Intent.ACTION_SEND);
 
         emailIntent.setData(Uri.parse("mailto:")).setType("text/plain");
-        emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"cperagine@gmail.com"});
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"hearthlopedia@gmail.com"});
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Hey Hearthlopedia!");
         emailIntent.putExtra(Intent.EXTRA_TEXT, "I was looking at " + card.getName() + " and was thinking....");
 

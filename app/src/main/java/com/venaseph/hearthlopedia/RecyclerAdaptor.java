@@ -35,7 +35,7 @@ public class RecyclerAdaptor extends RecyclerView.Adapter<RecyclerAdaptor.Custom
     @Override
     //Number of Items
     public int getItemCount() {
-        return cardList.Basic.size();
+        return cardList.Standard.size();
     }
 
 
@@ -50,7 +50,7 @@ public class RecyclerAdaptor extends RecyclerView.Adapter<RecyclerAdaptor.Custom
     @Override
     public void onBindViewHolder(final RecyclerAdaptor.CustomViewHolder holder, int position) {
 
-        final Card card = cardList.Basic.get(position);
+        final Card card = cardList.Standard.get(position);
         String cost = "0";
         // Could have made values protected in class, but meh
         holder.cardName.setText(card.getName());
