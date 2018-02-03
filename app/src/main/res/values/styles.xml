@@ -18,7 +18,6 @@
     <!-- Menu Theme -->
     <style name="CustomToolBarStyle" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:textColorSecondary">@color/colorBack</item>
-        <item name="android:background">@color/colorPrimary</item>
         <item name="titleTextColor">@color/colorBack</item>
     </style>
 
