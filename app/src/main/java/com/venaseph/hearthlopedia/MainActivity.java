@@ -165,45 +165,41 @@ public class MainActivity extends AppCompatActivity {
 
     public CardList filterList(CardList cardList) {
         cardList.Standard = new ArrayList<Card>();
-        for (int i =0; i < cardList.Basic.size(); i++) {
-            if(cardList.Basic.get(i).getImg() != null
-                    && cardList.Basic.get(i).getType().equals("Minion")
-                    || cardList.Basic.get(i).getType().equals("Spell") ){
-                cardList.Standard.add(cardList.Basic.get(i));
+
+        for (Card i : cardList.Basic) {
+            if(i.getImg() != null) {
+                if (i.getType().equals("Minion") || i.getType().equals("Spell")) {
+                    cardList.Standard.add(i);
+                }
             }
         }
 
-        for (int i =0; i < cardList.Classic.size(); i++) {
-            if(cardList.Classic.get(i).getImg() != null
-                    && cardList.Classic.get(i).getType().equals("Minion")
-                    || cardList.Classic.get(i).getType().equals("Spell") ){
-                cardList.Standard.add(cardList.Classic.get(i));
+        for (Card i : cardList.Classic) {
+            if(i.getImg() != null) {
+                if (i.getType().equals("Minion") || i.getType().equals("Spell")) {
+                    cardList.Standard.add(i);
+                }
             }
         }
 
-        for (int i =0; i < cardList.Karazhan.size(); i++) {
-            if(cardList.Karazhan.get(i).getImg() != null
-                    && cardList.Karazhan.get(i).getType().equals("Minion")
-                    || cardList.Karazhan.get(i).getType().equals("Spell") ){
-                cardList.Standard.add(cardList.Karazhan.get(i));
+        for (Card i : cardList.Knights) {
+            if((i.getType().equals("Minion") || i.getType().equals("Spell")) && (i.getRarity() != null) && (i.getImg() != null)) {
+                cardList.Standard.add(i);
             }
         }
 
-        for (int i =0; i < cardList.Kolbolds.size(); i++) {
-            if(cardList.Kolbolds.get(i).getImg() != null
-                    && cardList.Kolbolds.get(i).getType().equals("Minion")
-                    || cardList.Kolbolds.get(i).getType().equals("Spell") ){
-                cardList.Standard.add(cardList.Kolbolds.get(i));
+        for (Card i : cardList.Karazhan) {
+            if((i.getType().equals("Minion") || i.getType().equals("Spell")) && (i.getRarity() != null)&& (i.getImg() != null)) {
+                    cardList.Standard.add(i);
             }
         }
 
-        for (int i =0; i < cardList.Knights.size(); i++) {
-            if(cardList.Knights.get(i).getImg() != null
-                    && cardList.Knights.get(i).getType().equals("Minion")
-                    || cardList.Kolbolds.get(i).getType().equals("Spell") ){
-                cardList.Standard.add(cardList.Knights.get(i));
+        for (Card i : cardList.Kolbolds) {
+            if((i.getType().equals("Minion") || i.getType().equals("Spell")) && (i.getRarity() != null)&& (i.getImg() != null)) {
+                cardList.Standard.add(i);
             }
         }
+
         return cardList;
     }
 
