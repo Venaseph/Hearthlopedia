@@ -164,21 +164,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public CardList filterList(CardList cardList) {
-        cardList.Standard = new ArrayList<Card>();
+        cardList.Standard = new ArrayList<>();
 
         for (Card i : cardList.Basic) {
-            if(i.getImg() != null) {
-                if (i.getType().equals("Minion") || i.getType().equals("Spell")) {
+            if(i.getImg() != null && (i.getType().equals("Minion") || i.getType().equals("Spell"))) {
                     cardList.Standard.add(i);
-                }
             }
         }
 
         for (Card i : cardList.Classic) {
-            if(i.getImg() != null) {
-                if (i.getType().equals("Minion") || i.getType().equals("Spell")) {
+            if(i.getImg() != null && (i.getType().equals("Minion") || i.getType().equals("Spell"))) {
                     cardList.Standard.add(i);
-                }
             }
         }
 
