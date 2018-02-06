@@ -12,8 +12,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,6 +30,7 @@ public class CardActivity extends AppCompatActivity {
     private Toolbar toolBar;
     private TextView flavorTextView, rarityTextView, typeTextView, artistTextView, setTextView, nameTextView, rateLabelTextView;
     private GifImageView cardImgView;
+    private ImageView statsImageView;
     private int key;
     private String name;
     public Card card;
@@ -53,10 +57,12 @@ public class CardActivity extends AppCompatActivity {
         ratingBar = findViewById(R.id.ratingBar);
         rateLabelTextView = findViewById(R.id.rateLabelTextView);
         nameTextView = findViewById(R.id.nameTextView);
+        statsImageView = findViewById(R.id.statsImageView);
         name = card.getName();
 
         toolBarSetup();
         setCardValues();
+        managePremium();
 
         //set up Sharedprefs populate stars
         sharedPref = this.getSharedPreferences("com.venaseph.hearthlopedia", Context.MODE_PRIVATE);
@@ -69,6 +75,22 @@ public class CardActivity extends AppCompatActivity {
                 sharedPref.edit().putFloat(name, stars).apply();
             }
         });
+
+        statsImageView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                if (motionEvent.getAction() == android.view.MotionEvent.ACTION_DOWN) {
+                    statsImageView.setImageResource(R.drawable.premium);
+                } else if (motionEvent.getAction() == android.view.MotionEvent.ACTION_UP){
+                    statsImageView.setImageResource(R.drawable.charts);
+                }
+                return true;
+            }
+        });
+
+    }
+
+    private void managePremium() {
 
     }
 
